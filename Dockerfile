@@ -1,4 +1,4 @@
-FROM nvidia/cuda:10.0-base
+FROM nvidia/12.0.0-base-ubuntu20.04
 
 RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y --allow-unauthenticated --no-install-recommends \
     build-essential apt-utils cmake git curl vim ca-certificates \
