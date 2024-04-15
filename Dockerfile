@@ -3,7 +3,7 @@ FROM nvidia/cuda:12.0.0-base-ubuntu20.04
 RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y --allow-unauthenticated --no-install-recommends \
     build-essential apt-utils cmake git curl vim ca-certificates \
     libjpeg-dev libpng-dev \
-    libgtk3.0 libsm6 cmake ffmpeg pkg-config \
+    libgtk-3-0 libsm6 cmake ffmpeg pkg-config \
     qtbase5-dev libqt5opengl5-dev libassimp-dev \
     libboost-python-dev libtinyxml-dev bash \
     wget unzip libosmesa6-dev software-properties-common \
