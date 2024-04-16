@@ -37,7 +37,7 @@ COPY ./mjkey.txt .mujoco/mjkey.txt
 ENV LD_LIBRARY_PATH /home/user/.mujoco/mjpro150/bin:${LD_LIBRARY_PATH}
 ENV LD_LIBRARY_PATH /home/user/.mujoco/mjpro200_linux/bin:${LD_LIBRARY_PATH}
 
-RUN conda install -y python=3.8
+RUN conda install -y python=3.7
 RUN conda install mpi4py
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
