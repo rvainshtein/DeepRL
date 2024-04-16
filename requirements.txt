@@ -1,3 +1,4 @@
+numpy
 torch==1.5.1
 gym==0.10.8
 # tensorflow==1.15.0
