@@ -43,7 +43,7 @@ COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 RUN pip install glfw Cython imageio lockfile
 RUN pip install mujoco-py
-RUN pip install git+git://github.com/deepmind/dm_control.git@103834
+RUN pip install dm-control
 RUN pip install git+https://github.com/ShangtongZhang/dm_control2gym.git@scalar_fix
 RUN pip install git+git://github.com/openai/baselines.git@8e56dd#egg=baselines
 WORKDIR /home/user/deep_rl
