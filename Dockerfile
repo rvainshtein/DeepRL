@@ -75,9 +75,6 @@ RUN chmod 400 /home/user/.ssh/id_rsa
 # Create known_hosts
 RUN touch /home/user/.ssh/known_hosts
 
-# Add github key
-RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
-
 RUN systemctl enable ssh & systemctl start ssh
 
 USER user
