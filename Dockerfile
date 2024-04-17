@@ -47,4 +47,37 @@ RUN pip install dm-control
 RUN pip install git+https://github.com/ShangtongZhang/dm_control2gym.git@scalar_fix
 RUN pip install pip install baselines
 RUN pip install ipython
+
+# ~~~~~~~~~~~~~~~~ SSH ~~~~~~~~~~~~~~~~
+
+# Install SSH server
+RUN apt-get update && apt-get install -y openssh-server
+RUN mkdir /var/run/sshd
+#
+## Set a root password (change to a secure password)
+#RUN echo 'root:root' | chpasswd
+
+# Permit root login and password authentication
+RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
+
+EXPOSE 22
+
+# Make ssh dir
+RUN mkdir /home/user/.ssh/
+
+# Copy over private key, and set permissions
+# Warning! Anyone who gets their hands on this image will be able
+# to retrieve this private key file from the corresponding image layer
+ADD id_rsa /home/user/.ssh/id_rsa
+RUN chmod 400 /home/user/.ssh/id_rsa
+
+# Create known_hosts
+RUN touch /home/user/.ssh/known_hosts
+
+# Add github key
+RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
+
+RUN systemctl enable ssh & systemctl start ssh
+
 WORKDIR /home/user/deep_rl
