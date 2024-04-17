@@ -75,7 +75,7 @@ RUN chmod 400 /home/user/.ssh/id_rsa
 # Create known_hosts
 RUN touch /home/user/.ssh/known_hosts
 
-RUN systemctl enable ssh & systemctl start ssh
+RUN service ssh restart
 
 USER user
 WORKDIR /home/user/deep_rl
