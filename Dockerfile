@@ -46,4 +46,5 @@ RUN pip install mujoco-py
 RUN pip install dm-control
 RUN pip install git+https://github.com/ShangtongZhang/dm_control2gym.git@scalar_fix
 RUN pip install pip install baselines
+RUN pip install ipython
 WORKDIR /home/user/deep_rl
