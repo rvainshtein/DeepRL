@@ -77,5 +77,18 @@ RUN touch /home/user/.ssh/known_hosts
 
 RUN service ssh restart
 
+# Switch to root user to modify user's group membership
+USER root
+
+# Add user to the root group
+RUN usermod -aG root user_name
+
+# Set password for the user (change 'password' to your desired password)
+RUN echo 'user:password' | chpasswd
+
+# Allow the user to execute specific commands as root without a password prompt
+RUN echo 'user ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
 USER user
 WORKDIR /home/user/deep_rl
+

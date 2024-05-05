@@ -623,8 +623,8 @@ if __name__ == '__main__':
     set_one_thread()
     random_seed()
     # -1 is CPU, a positive integer is the index of GPU
-    select_device(-1)
-    # select_device(0)
+    # select_device(-1)
+    select_device(0)
 
     game = 'CartPole-v0'
     # dqn_feature(game=game, n_step=1, replay_cls=UniformReplay, async_replay=True, noisy_linear=True)
