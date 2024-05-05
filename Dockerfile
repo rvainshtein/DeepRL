@@ -81,7 +81,7 @@ RUN service ssh restart
 USER root
 
 # Add user to the root group
-RUN usermod -aG root user_name
+RUN usermod -aG root user
 
 # Set password for the user (change 'password' to your desired password)
 RUN echo 'user:password' | chpasswd
